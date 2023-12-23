@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>電工技能試験問題 材料表ランダム表示</title>
+</head>
+<body>
+
+	<h1>電工技能試験問題 材料表ランダム表示</h1>
+
+	<p>
+	  リロードすることでNo1からNo13までの材料表がランダムで表示される
+	</p>
+
+	<!-- ======================================================================= -->
+	<!-- ▼画像群を登録した上で、そこからランダムに1つを選んで表示するスクリプト -->
+	<!-- ======================================================================= -->
+	<script type="text/javascript">
+	  var imglist = new Array(
+	  "./No1_材料.png",
+	  "./No2_材料.png",
+	  "./No3_材料.png",
+	  "./No4_材料.png",
+	  "./No5_材料.png",
+	  "./No6_材料.png",
+	  "./No7_材料.png",
+	  "./No8_材料.png",
+	  "./No9_材料.png",
+	  "./No10_材料.png",
+	  "./No11材料.png",
+	  "./No12材料.png",
+	  "./No13材料.png" );
+    var selectnum = Math.floor(Math.random() * imglist.length);
+    var examnum = selectnum + 1;
+    var output = "<img src=" + imglist[selectnum] + " width=\"640\" ><br>";
+    <!-- var output2 = "<img src=\"../No" + examnum + "/No" + examnum + "_複線図.jpg" + "\">"; -->
+    document.write(output);
+    <!-- document.write(output2); -->
+
+    function func1() {
+      var x = document.getElementById("zumen");
+      x.innerHTML = "【No" + examnum + "】<br>" + "<img src=\"../No" + examnum + "/No" + examnum + "_単線図.png\"" + " width=\"640\"" + "\">" + "<br>" + "<img src=\"../No" + examnum + "/No" + examnum + "_複線図.jpg" + "\">";
+    }
+
+	</script>
+	<!-- ================================== -->
+	<!-- ▼JavaScriptが無効な場合の代替表示 -->
+	<!-- ================================== -->
+	<noscript><img src="./flowerA.jpg" width="153" height="125" alt="材料表の画像"></noscript>
+
+	<p>
+	  ※たまたま同じ画像が連続で表示される場合もある（画像は全部で13種類）
+	</p>
+
+	<hr>
+
+  <button type="button" onclick="func1();">図面表示</button>
+  <span id="zumen"></span>
+
+	<p>
+    <a href="https://www.notion.so/361064d7ffd947b897eccdde02f16958">Notion 電気工事士試験対策ページ</a>
+	</p>
+
+</body>
+</html>
